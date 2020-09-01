@@ -1,14 +1,13 @@
 package com.company;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    static public ArrayList<SalariedEmployee> salaried_employees = new ArrayList<SalariedEmployee>();
-    static public ArrayList<HourlyEmployee> hourly_employees = new ArrayList<HourlyEmployee>();
-    static public ArrayList<CommissionedEmployee> commissioned_employees = new ArrayList<CommissionedEmployee>();
+    static public ArrayList<SalariedEmployee> salaried_employees = new ArrayList<>();
+    static public ArrayList<HourlyEmployee> hourly_employees = new ArrayList<>();
+    static public ArrayList<CommissionedEmployee> commissioned_employees = new ArrayList<>();
     // This section populates the employee array lists with a new object each for testing
     // purposes.
 
@@ -132,7 +131,7 @@ public class Main {
                         MenuInterface.employeeInterface();
                         System.out.println("Please select category of employee you want to remove:");
                         input = checkInt(input_scanner);
-                        int selected_employee = 0;
+                        int selected_employee;
                         int array_validator = 0;
                         // Salaried employee array selection.
                         if (input == 1 && !salaried_employees.isEmpty()) {
@@ -204,7 +203,6 @@ public class Main {
 
                     // Generates a payslip for one of the employees on the list.
                 } else if (input == 4) {
-                    int stop_condition = 1;
 
                     int is_running = 1;
                     while (is_running == 1) {
@@ -243,7 +241,7 @@ public class Main {
                                     .get(selected_employee)
                                     .salaried_payslips
                                     .add(new SalariedPayslip(salary_month, employee_id, monthly_salary));
-                        } else if (input == 1 && salaried_employees.isEmpty()) {
+                        } else if (input == 1) {
                             MenuInterface.isEmptyList();
                         } else if (input == 2 && !hourly_employees.isEmpty()) {
                             for (HourlyEmployee hourly_employee : hourly_employees) {
@@ -274,7 +272,7 @@ public class Main {
                                     .hourly_payslips
                                     .add(new HourlyPayslip(employee_id, month, hourly_rate, salary));
 
-                        } else if (input == 2 && hourly_employees.isEmpty()) {
+                        } else if (input == 2) {
                             MenuInterface.isEmptyList();
                         } else if (input == 3 && !commissioned_employees.isEmpty()) {
                             for (CommissionedEmployee commissioned_employee : commissioned_employees) {
