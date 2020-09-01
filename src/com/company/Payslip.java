@@ -55,6 +55,8 @@ class CommissionedPayslip extends Payslip {
     this.commission_rate = commission_rate;
   }
   // Returns data about the payslip.
+
+
   public String toString() {
     return String.format(
         "  Employee id: %d\n Month: %d\n Gross salary: %2f\n Sales amount: %1f \n Commission rate: %1f",
