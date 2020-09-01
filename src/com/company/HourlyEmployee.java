@@ -37,7 +37,7 @@ class HourlyEmployee extends Employee {
     // Returns a string with all the data of the specified employee.
     public String toString() {
         return String.format(
-                "  Employee id: %d\n Employee title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National insurance: %s \n Job titles: %s \n Hourly rate: %2f",
+                "  Employee id: %d\n Employee title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National insurance: %s \n Job titles: %s \n Hourly rate: %.2f",
                 employee_id,
                 employee_title,
                 first_name,

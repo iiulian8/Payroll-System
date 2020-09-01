@@ -18,7 +18,7 @@ class SalariedPayslip extends Payslip {
   // Returns data about the payslip.
   public String toString() {
     return String.format(
-        " Employee id: %d\n Month: %d\n Monthly salary: %2f\n", employee_id, month, monthly_salary);
+        " Employee id: %d\n Month: %d\n Monthly salary: %.2f\n", employee_id, month, monthly_salary);
   }
 }
 
@@ -35,7 +35,7 @@ class HourlyPayslip extends Payslip {
 
   public String toString() {
     return String.format(
-        "Employee id: %d\n Month: %d\n Hourly rate: %2f\n Salary: %2f",
+        "Employee id: %d\n Month: %d\n Hourly rate: %.2f\n Salary: %.2f",
         employee_id, month, hourly_rate, salary);
   }
 }
@@ -59,7 +59,7 @@ class CommissionedPayslip extends Payslip {
 
   public String toString() {
     return String.format(
-        "  Employee id: %d\n Month: %d\n Gross salary: %2f\n Sales amount: %1f \n Commission rate: %1f",
+        "  Employee id: %d\n Month: %d\n Gross salary: %.2f\n Sales amount: %.2f \n Commission rate: %.2f",
         employee_id, month, gross_salary, sales_amount, commission_rate);
   }
 }

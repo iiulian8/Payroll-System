@@ -1,5 +1,6 @@
 package com.company;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -59,7 +60,7 @@ public class Main {
                             salaried_employees.add(SalariedEmployee.createEmployee(id_assign));
 
                             if (Objects.isNull(salaried_employees.get(salaried_employees.size() - 1))) {
-                                MenuInterface.isExisting();
+                                MenuInterface.existingEmployee();
                                 salaried_employees.remove(salaried_employees.size() - 1);
                             }
 
@@ -68,7 +69,7 @@ public class Main {
                             // Creates an hourly employee and stores it into an object array.
                             hourly_employees.add(HourlyEmployee.createEmployee(id_assign));
                             if (Objects.isNull(hourly_employees.get(hourly_employees.size() - 1))) {
-                                MenuInterface.isExisting();
+                                MenuInterface.existingEmployee();
                                 hourly_employees.remove(hourly_employees.size() - 1);
                             }
                             // Checks if the first name is already in the system, if it is, it will delete the
@@ -80,7 +81,7 @@ public class Main {
                             commissioned_employees.add(CommissionedEmployee.createEmployee(id_assign));
 
                             if (Objects.isNull(commissioned_employees.get(commissioned_employees.size() - 1))) {
-                                MenuInterface.isExisting();
+                                MenuInterface.existingEmployee();
                                 commissioned_employees.remove(commissioned_employees.size() - 1);
                             }
                             // Checks if the first name is already in the system, if it is, it will delete the
@@ -226,7 +227,7 @@ public class Main {
                             // selected
                             // employee from the list.
                             int employee_id = salaried_employees.get(selected_employee).getId();
-                            int monthly_salary = salaried_employees.get(selected_employee).getSalary();
+                            double monthly_salary = salaried_employees.get(selected_employee).getSalary();
                             System.out.println("Please input the month: ");
                             int salary_month = input_scanner.nextInt();
                             System.out.println(
@@ -325,12 +326,22 @@ public class Main {
                         input = input_scanner.nextInt();
                         // Salaried employee.
                         if (input == 1 && !salaried_employees.isEmpty()) {
+                            int count = 0;
                             for (SalariedEmployee salaried_employee : salaried_employees) {
-                                salaried_employee.returnName();
+                                if (salaried_employee.salaried_payslips.size() > 0) {
+                                    salaried_employee.returnName();
+                                    count++;
+                                }
                             }
-                            int selected_employee = checkInt(input_scanner) - 1;
                             int array_validator = 0;
+
+                            if (count == 0){
+                                MenuInterface.noPayslip();
+                                array_validator = 1;
+                            }
+
                             while (array_validator == 0) {
+                                int selected_employee = checkInt(input_scanner) - 1;
                                 try {
                                     salaried_employees.get(selected_employee);
                                     array_validator = 1;
@@ -350,12 +361,20 @@ public class Main {
                             }
                             // Hourly employee.
                         } else if (input == 2 && !hourly_employees.isEmpty()) {
+                            int count = 0;
                             for (HourlyEmployee hourly_employee : hourly_employees) {
-                                hourly_employee.returnName();
+                                if (hourly_employee.hourly_payslips.size() > 0) {
+                                    hourly_employee.returnName();
+                                    count++;
+                                }
                             }
-                            int selected_employee = checkInt(input_scanner) - 1;
                             int array_validator = 0;
+                            if (count == 0) {
+                                MenuInterface.noPayslip();
+                                array_validator = 1;
+                            }
                             while (array_validator == 0) {
+                                int selected_employee = checkInt(input_scanner) - 1;
                                 try {
                                     hourly_employees.get(selected_employee);
                                     array_validator = 1;
@@ -371,12 +390,21 @@ public class Main {
                             }
                             // Commissioned employee.
                         } else if (input == 3 && !commissioned_employees.isEmpty()) {
-                            for (int i = 0; i < salaried_employees.size(); i++) {
-                                commissioned_employees.get(i).returnName();
+                            int count = 0;
+                            for (CommissionedEmployee commissionedEmployee : commissioned_employees) {
+                                if (commissionedEmployee.commissioned_payslips.size() > 0) {
+                                    commissionedEmployee.returnName();
+                                    count++;
+                                }
                             }
-                            int selected_employee = checkInt(input_scanner) - 1;
+
                             int array_validator = 0;
+                            if (count == 0){
+                                MenuInterface.noPayslip();
+                                array_validator = 1;
+                            }
                             while (array_validator == 0) {
+                                int selected_employee = checkInt(input_scanner) - 1;
                                 try {
                                     commissioned_employees.get(selected_employee);
                                     array_validator = 1;

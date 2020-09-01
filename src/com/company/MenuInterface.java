@@ -68,9 +68,11 @@ public class MenuInterface {
         System.out.println("There is no employee of this type registered");
     }
 
-    public static void isExisting() {
+    public static void existingEmployee() {
         System.out.println("An employee with this name already exists.");
     }
+
+    public static void noPayslip() {System.out.println("No payslip has been found in this category");}
 }
 
 

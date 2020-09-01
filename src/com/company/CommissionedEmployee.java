@@ -32,7 +32,7 @@ class CommissionedEmployee extends Employee {
     // Returns a string with all the data of the specified employee.
     public String toString() {
         return String.format(
-                "  Employee id : %d\n Employee title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National insurance: %s \n Job titles: %s \n Gross salary: %2f \n Commission rate: %2f",
+                "  Employee id : %d\n Employee title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National insurance: %s \n Job titles: %s \n Gross salary: %.2f \n Commission rate: %.2f",
                 employee_id,
                 employee_title,
                 first_name,
@@ -48,22 +48,16 @@ class CommissionedEmployee extends Employee {
         Scanner input_scanner = new Scanner(System.in);
         System.out.println("Title:");
         String title = Main.checkLine(input_scanner);
-        ;
         System.out.println("First name:");
         String first_name = Main.checkLine(input_scanner);
-        ;
         System.out.println("Last name");
         String last_name = Main.checkLine(input_scanner);
-        ;
         System.out.println("Date of birth:");
         String date_birth = Main.checkLine(input_scanner);
-        ;
         System.out.println("National insurance number");
         String national_insurance = Main.checkLine(input_scanner);
-        ;
         System.out.println("Job titles:");
         String job_titles = Main.checkLine(input_scanner);
-        ;
         System.out.println("Gross salary:");
         double gross_salary = Main.checkDouble(input_scanner);
         double commission_rate = Main.checkDouble(input_scanner);

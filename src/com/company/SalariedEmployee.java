@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class SalariedEmployee extends Employee {
     public ArrayList<SalariedPayslip> salaried_payslips = new ArrayList<>();
-    int annual_salary;
+    double annual_salary;
     String work_mode;
     String job_department;
 
@@ -32,7 +32,7 @@ public class SalariedEmployee extends Employee {
         this.annual_salary = salary;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return annual_salary;
     }
 
@@ -43,7 +43,7 @@ public class SalariedEmployee extends Employee {
     // Returns a string with all the data of the specified employee.
     public String toString() {
         return String.format(
-                "  Employee id: %d\n Title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National Insurance: %s\n Job titles: %s\n Job department: %s\n Work mode: %s\n Annual salary: %d",
+                "  Employee id: %d\n Title: %s\n First name: %s\n Last name: %s\n Date of birth: %s\n National Insurance: %s\n Job titles: %s\n Job department: %s\n Work mode: %s\n Annual salary: %.2f",
                 employee_id,
                 employee_title,
                 first_name,
